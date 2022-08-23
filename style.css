@@ -1,0 +1,23 @@
+*
+{
+  text-align: center;
+  background-color: lightblue;
+}
+p{
+  font-size: 30px;
+  text-align: center;
+  font-family: helvetica;
+}
+
+a{
+  text-align: center;
+}
+h1{
+  text-align: center;
+  color: red;
+}
+
+a
+{
+  color: red;
+}
