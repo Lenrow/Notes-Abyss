@@ -1,0 +1,28 @@
+Notes HTML:
+
+    Coding Convention:
+        - Lowercase Attributes
+        - Quote Attribute Values example: "<a href=https://www.w3schools.com/html/>Visit our HTML tutorial</a>" is possible but bad
+        - While headings like <h1> do make a paragraph bigger they should only be used for actual headings
+        - 
+    
+    Elements in HTML:
+        - <h1> to <h6> define a Heading which is used to structure the webpage and also makes the text bigger
+        - <!DOCTYPE html> defines the type of the document and is used at the top of the script
+        - <html> defines the html space within the script. All html code is supposed to be written inside of this element
+        - <a> is used for links and the type of link is defined by the 'href' Attribute
+        - <img> is used for images 'src' Attribute is used to find the images
+        - <p> is a paragraph, one or multiple lines of writing
+        - <br> breaks the line of a paragraph
+        - <hr> seperates content and creates a horizontal line
+        - <map> defines an image map. With that you can click on certain parts of the image and get directed via a link
+        - <table> defines the start of a table where information can be arranged
+        - <tr> table row, is the row of a table that always comes before the column because row
+        - <td> content of the column of a table inside a row. So each row has n column entries
+        - <th> table headings are used instead of "td" when it is a more important part of the table
+        - 
+    
+    Attributes:
+        Link Attributes:
+            - 'target' specifies where to open a link: "_self" same tab, "_blank" new tab, "_parent" in parent frame, "_top" full body of Window
+            - 
