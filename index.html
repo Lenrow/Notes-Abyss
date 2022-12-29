@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> Notes Abyss </title>
+    <link rel="stylesheet" href="stylefiles\firstpage-style.css">
+    </head>
+
+    <body>
+
+    <div class="subtext">
+        <h1> Welcome to the Notes Abyss </h1>
+        <p> This is my little Project <br> to make taking and transfering Notes on different devices <br> a lot easier</p>
+    </div>
+
+        <div class="box">
+
+            <div class="main" id="welcomePage">
+                <p> If you are a new User please proceed by clicking the Button below. </p>
+                <button class="button" type="button" id="startButton" onclick="switchPage()"> Join the Abyss</button>
+                <hr>
+                <p> 
+                    If you are already familiar with our services<br> 
+                    then please hand us your key...
+                </p>
+                <input type="file" accept=".json">
+                <br>
+                <button class="button" type="button" style="visibility: hidden" id="hiddenButton">Proceed</button>
+                <hr>
+                <p class="pmarg">
+                    If there is nothing for you to inquire <br>
+                    I must ask you to turn back <br>
+                    and leave this site <br>
+                    Farewell!
+                </p>
+            </div>
+
+            <div class="main" style="display: none;">
+                <form method="POST" id="startForm">
+                    <h3 style="margin-bottom: 10px"> Welcome to the Abyss!</h3>
+                    <p class="smalltext">
+                        The Notes Abyss is a website designated to making it easier to manage Notes of all Kinds. <br>
+                        The website was made so one can write, and then compile and download Notes. <br>
+                        And then if needed upload that compiled File again to the website to read or edit the Notes. <br>
+                        more Information can be found on <a href="https://github.com/Lenrow/Webproject-Test" target="_blank">Github</a> or the Information section of the Website.
+                    </p>
+                    <p> For starters please give us the Name of both you and your Notebook.</p>
+                    <input class="inputs" type="text" placeholder="Name" name="name">
+                    <input type="text" class="inputs" placeholder="Notebook Name" name="notebook">
+                    <p class="smalltext">(All Names can be changed on the Website)</p>
+                    <hr>
+                    <p>
+                        With that you can start using the Notes Abyss. <br>
+                        I hope the Website helps you <br>
+                        and thank you for Joining the Abyss!
+                    </p>
+                    <button class="button" type="submit" id="sendAndJoinButton"> Send Information and join the Abyss</button> <br>
+                    <button class="button" type="button" style="display: flex; justify-content: flex-start" id="returnButton" onclick="switchPage()">Return</button>
+                </form>
+            </div>
+
+        </div>
+
+        <script type="application/javascript" src="JS-scripts/Firstpage.js"></script>
+    </body>
+</html>
