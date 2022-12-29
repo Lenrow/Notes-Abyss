@@ -2,6 +2,9 @@ const startDiv = document.getElementById("startForm").parentElement;
 const main = document.getElementById("welcomePage");
 const newUserButton = document.getElementById("startButton");
 
+const nameForm = document.getElementById("startForm");
+const joinNewButton = document.getElementById("sendAndJoinButton");
+const remindingFormText = document.getElementById("hiddenFormText");
 
 function switchPage() {
     if (main.style.display != "none") {
@@ -11,5 +14,14 @@ function switchPage() {
     else {
         startDiv.style.display = "none";
         main.style.display = "block";
+    }
+}
+
+function joinAnew() {
+    if (nameForm.elements[0].value && nameForm.elements[1].value){
+        location.href = "zahtmlfiles/mainPage.html";
+    }
+    else {
+        remindingFormText.style.visibility = "visible";
     }
 }

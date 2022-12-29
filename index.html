@@ -14,6 +14,7 @@
 
         <div class="box">
 
+            <!--The Welcome Page where Users can choose between starting anew or uploading their file--> 
             <div class="main" id="welcomePage">
                 <p> If you are a new User please proceed by clicking the Button below. </p>
                 <button class="button" type="button" id="startButton" onclick="switchPage()"> Join the Abyss</button>
@@ -24,7 +25,7 @@
                 </p>
                 <input type="file" accept=".json">
                 <br>
-                <button class="button" type="button" style="visibility: hidden" id="hiddenButton">Proceed</button>
+                <button class="button" type="button" style="visibility: hidden" id="hiddenButton" onclick="location.href='zahtmlfiles/mainPage.html'">Proceed</button>
                 <hr>
                 <p class="pmarg">
                     If there is nothing for you to inquire <br>
@@ -53,7 +54,8 @@
                         I hope the Website helps you <br>
                         and thank you for Joining the Abyss!
                     </p>
-                    <button class="button" type="submit" id="sendAndJoinButton"> Send Information and join the Abyss</button> <br>
+                    <button class="button" type="button" id="sendAndJoinButton" onclick="joinAnew()"> Send Information and join the Abyss</button> <br>              
+                    <p class="smalltext" style="visibility: hidden" id="hiddenFormText"> please fill out both Forms </p>
                     <button class="button" type="button" style="display: flex; justify-content: flex-start" id="returnButton" onclick="switchPage()">Return</button>
                 </form>
             </div>
