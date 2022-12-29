@@ -43,3 +43,19 @@ body {
     font-size: 20px;
     color: #f39c12;
 }
+
+.inputs {
+    color: #154360;
+    background-color: #d35400;
+    font-size: 20px;
+}
+
+p.smalltext {
+    font-size: 20px;
+    color: #808b96;
+    margin: 5px auto;
+}
+
+p.pmarg {
+    margin-top: 90px;
+}
