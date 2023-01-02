@@ -1,23 +1,21 @@
-*
-{
+* {
   text-align: center;
   background-color: lightblue;
 }
-p{
+p {
   font-size: 30px;
   text-align: center;
   font-family: helvetica;
 }
 
-a{
+a {
   text-align: center;
 }
-h1{
+h1 {
   text-align: center;
   color: red;
 }
 
-a
-{
+a {
   color: red;
 }

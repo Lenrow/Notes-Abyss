@@ -1,61 +1,69 @@
 body {
-    background-color: #154360;
-    text-align: center;
-    color:#fcf3cf;
+  background-color: #212f3d;
+  text-align: center;
+  color: #eafaf1;
 }
 
+.start-div {
+  display: none;
+}
+.container.active .start-div {
+  display: block;
+}
+.container.active #welcomePage {
+  display: none;
+}
 
 .box {
-    height: 660px;
-    width: 60%;
-    margin: 2% auto;
-    background-color: #1f618d;
-    display: flex;
-    border: 3px solid #f39c12;
-    border-radius: 20px;
-    justify-content: center;
+  height: auto;
+  width: 60%;
+  margin: 2% auto;
+  padding: 0 0 2% 0;
+  background-color: #2c3e50;
+  display: flex;
+  border: 3px solid #117a65;
+  border-radius: 20px;
+  justify-content: center;
 }
 
 .button {
-    font-size: 25px;
-    background-color: /* linear-gradient(to right, rgba(230, 126, 34,1), rgba(202, 111, 30, 1),*/ rgba(186, 74, 0, 1);
-    color:#154360;
-    border: 0;
-    border-radius: 15px;
-    padding: 10px 20px;
-    box-shadow: 2px 2px 2px rgb(55, 54, 54);
+  font-size: 25px;
+  background-color: #0e6655;
+  border: 0;
+  color: #eafaf1;
+  border-radius: 15px;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 2px rgb(55, 54, 54);
 }
 
 .button:hover {
-    background-color: #d35400;
+  background-color: #117a65;
 }
 
 .button:active {
-    background-color: black;
-    color: #c0392b;
+  background-color: #0b5345;
 }
 
 .main {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .subtext {
-    font-size: 20px;
-    color: #f39c12;
+  font-size: 20px;
 }
 
 .inputs {
-    color: #154360;
-    background-color: #d35400;
-    font-size: 20px;
+  background-color: #117a65;
+  color: #eafaf1;
+  font-size: 20px;
 }
 
 p.smalltext {
-    font-size: 20px;
-    color: #808b96;
-    margin: 5px auto;
+  font-size: 20px;
+  color: #808b96;
+  margin: 5px auto;
 }
 
 p.pmarg {
-    margin-top: 90px;
+  margin-top: 90px;
 }
