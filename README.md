@@ -1,4 +1,6 @@
-# Webproject-Test
+# Notes-Abyss
+
+A beginner Web-developement Project, designated towards making taking and sharing notes between devices easier.
 
 Project-Roadmap:
 
