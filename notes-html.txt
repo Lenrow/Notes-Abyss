@@ -26,3 +26,11 @@ Notes HTML:
         Link Attributes:
             - 'target' specifies where to open a link: "_self" same tab, "_blank" new tab, "_parent" in parent frame, "_top" full body of Window
             - 
+
+
+
+colors:
+#1f618d
+#154360
+#d35400
+#f39c12
