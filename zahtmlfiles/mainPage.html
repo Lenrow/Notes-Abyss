@@ -6,50 +6,69 @@
   </head>
 
   <body>
-    <div class="topBar">
-      <p class="topP">Notes Abyss</p>
-      <p class="topP">Settings</p>
-    </div>
+    <div style="display: none">
+      <div class="topBar">
+        <p class="topP">Notes Abyss</p>
+        <p class="topP">Settings</p>
+      </div>
 
-    <div id="mainBox">
-      <div id="selector"></div>
+      <div id="mainBox">
+        <div id="selector"></div>
 
-      <div id="notesBox">
-        <div class="notes">
-          <h4 class="noteTitle">title</h4>
-          <div class="notePreview">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
-            accusantium maxime. Facere beatae et porro debitis, ducimus impedit
-            eligendi! Placeat minima odit tenetur reprehenderit consectetur
-            dignissimos rem ipsum minus cupiditate.
+        <div id="notesBox">
+          <div class="notes">
+            <h4 class="noteTitle">title</h4>
+            <div class="notePreview">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
+              accusantium maxime. Facere beatae et porro debitis, ducimus
+              impedit eligendi! Placeat minima odit tenetur reprehenderit
+              consectetur dignissimos rem ipsum minus cupiditate.
+            </div>
           </div>
-        </div>
 
-        <div class="notes">
-          <h4 class="noteTitle">title</h4>
-          <div class="notePreview">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
-            accusantium maxime. Facere beatae et porro debitis, ducimus impedit
-            eligendi! Placeat minima odit tenetur reprehenderit consectetur
-            dignissimos rem ipsum minus cupiditate.
+          <div class="notes">
+            <h4 class="noteTitle">title</h4>
+            <div class="notePreview">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
+              accusantium maxime. Facere beatae et porro debitis, ducimus
+              impedit eligendi! Placeat minima odit tenetur reprehenderit
+              consectetur dignissimos rem ipsum minus cupiditate.
+            </div>
           </div>
-        </div>
 
-        <div class="notes">
-          <h4 class="noteTitle">title</h4>
-          <div class="notePreview">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
-            accusantium maxime. Facere beatae et porro debitis, ducimus impedit
-            eligendi! Placeat minima odit tenetur reprehenderit consectetur
-            dignissimos rem ipsum minus cupiditate.
+          <div class="notes">
+            <h4 class="noteTitle">title</h4>
+            <div class="notePreview">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
+              accusantium maxime. Facere beatae et porro debitis, ducimus
+              impedit eligendi! Placeat minima odit tenetur reprehenderit
+              consectetur dignissimos rem ipsum minus cupiditate.
+            </div>
           </div>
         </div>
       </div>
+
+      <div></div>
+
+      <div class="pageEnd"></div>
     </div>
 
-    <div></div>
-
-    <div class="pageEnd"></div>
+    <div id="textEditor">
+      <form>
+        <input
+          class="editorText"
+          type="text"
+          placeholder="Title"
+          name="Title"
+          required
+        />
+        <textarea class="editorText" name="Note" id="noteText"></textarea>
+        <div>
+          <button type="button" class="leaveButton">Return</button>
+          <button type="submit">Save Note</button>
+        </div>
+      </form>
+    </div>
 
     <script
       type="application/javascript"
