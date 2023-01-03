@@ -50,7 +50,7 @@
       </div>
 
       <div class="main start-div">
-        <form method="POST" id="startForm">
+        <form method="GET" action="zahtmlfiles/mainPage.html" id="startForm">
           <h3 style="margin-bottom: 10px">Welcome to the Abyss!</h3>
           <p class="smalltext">
             The Notes Abyss is a website designated to making it easier to
@@ -68,12 +68,19 @@
           <p>
             For starters please give us the Name of both you and your Notebook.
           </p>
-          <input class="inputs" type="text" placeholder="Name" name="name" />
+          <input
+            class="inputs"
+            type="text"
+            placeholder="Name"
+            name="name"
+            required
+          />
           <input
             type="text"
             class="inputs"
             placeholder="Notebook Name"
             name="notebook"
+            required
           />
           <p class="smalltext">(All Names can be changed on the Website)</p>
           <hr />
@@ -82,34 +89,18 @@
             I hope the Website helps you <br />
             and thank you for Joining the Abyss!
           </p>
-          <button
-            class="button"
-            type="button"
-            id="sendAndJoinButton"
-            onclick="joinAnew()"
-          >
+          <button class="button" type="submit" id="sendAndJoinButton">
             Send Information and join the Abyss
           </button>
           <br />
-          <p class="smalltext" style="visibility: hidden" id="hiddenFormText">
-            please fill out both Forms
-          </p>
-          <button
-            class="button switch-button"
-            type="button"
-            style="display: flex; justify-content: flex-start"
-            id="returnButton"
-            onclick="switchPage()"
-          >
+
+          <button class="button switch-button" type="button" id="returnButton">
             Return
           </button>
         </form>
       </div>
     </div>
 
-    <script
-      type="application/javascript"
-      src="JS-scripts/Firstpage.js"
-    ></script>
+    <script type="application/javascript" src="JS-scripts/index.js"></script>
   </body>
 </html>
