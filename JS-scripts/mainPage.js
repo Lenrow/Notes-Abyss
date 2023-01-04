@@ -10,7 +10,7 @@ function checkForNoteBooks() {
       new URLSearchParams(window.location.search).entries()
     );
     NoteBooks = params;
-    NoteBooks.notebook = [{ nameNoteBook: params.notebook, notes: {} }];
+    NoteBooks.notebook = [{ nameNoteBook: params.notebook, notes: [] }];
   }
 }
 
@@ -27,10 +27,11 @@ function addToJS() {
     content: document.getElementById("noteText").value,
   };
   if (tempNote.title) {
-    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes = {
+    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes.push({
       title: tempNote.title,
       content: tempNote.content,
-    };
+    });
+    console.log(NoteBooks.notebook.notes);
     switchNotePage();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
