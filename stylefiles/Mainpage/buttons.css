@@ -1,0 +1,45 @@
+button {
+  padding: 0;
+}
+
+.notes.changeButton {
+  background-color: #5d6d7e;
+  border: 2px solid #117a65;
+  border-radius: 10px;
+  margin: 15px 15px;
+  flex: 25%;
+  padding-top: 0;
+  color: #eafaf1;
+  display: flex;
+  flex-direction: column;
+}
+
+.defaultButton {
+  font-size: 25px;
+  background-color: #0e6655;
+  border: 0;
+  color: #eafaf1;
+  border-radius: 15px;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 2px rgb(55, 54, 54);
+}
+
+.defaultButton:hover {
+  background-color: #117a65;
+}
+
+.defaultButton:active {
+  background-color: #0b5345;
+}
+
+.leaveButton {
+  background-color: #b03a2e;
+}
+
+.leaveButton:hover {
+  background-color: #cb4335;
+}
+
+.leaveButton:active {
+  background-color: #943126;
+}

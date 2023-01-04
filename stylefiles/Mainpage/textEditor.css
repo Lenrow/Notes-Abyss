@@ -1,0 +1,44 @@
+#textEditor {
+  height: 80%;
+  width: 70%;
+  margin: 5% 10%;
+  background-color: #2e4053;
+}
+
+.editorText {
+  color: #eafaf1;
+  font-size: 20px;
+  border: 3px solid #117a65;
+}
+
+input.editorText {
+  background-color: #5d6d7e;
+  height: 5%;
+}
+
+textarea {
+  background-color: #2e4053;
+  height: 65%;
+}
+
+#textEditor form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  margin: 2% 10% 0 10%;
+}
+
+#textEditor div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 4% 0;
+}
+
+.hiddenEditor {
+  display: none;
+}
+
+#textEditor.section.active {
+  display: block;
+}
