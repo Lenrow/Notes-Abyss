@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <div style="display: none">
+    <div class="section" id="mainNoteWrapper">
       <div class="topBar">
         <p class="topP">Notes Abyss</p>
         <p class="topP">Settings</p>
@@ -16,7 +16,7 @@
         <div id="selector"></div>
 
         <div id="notesBox">
-          <div class="notes">
+          <button class="notes changeButton" type="button">
             <h4 class="noteTitle">title</h4>
             <div class="notePreview">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
@@ -24,7 +24,7 @@
               impedit eligendi! Placeat minima odit tenetur reprehenderit
               consectetur dignissimos rem ipsum minus cupiditate.
             </div>
-          </div>
+          </button>
 
           <div class="notes">
             <h4 class="noteTitle">title</h4>
@@ -53,19 +53,25 @@
       <div class="pageEnd"></div>
     </div>
 
-    <div id="textEditor">
+    <div id="textEditor" class="section hiddenEditor">
       <form>
         <input
           class="editorText"
           type="text"
           placeholder="Title"
-          name="Title"
+          name="title"
           required
+          id="newNoteTitle"
         />
-        <textarea class="editorText" name="Note" id="noteText"></textarea>
+        <textarea class="editorText" name="note" id="noteText"></textarea>
         <div>
-          <button type="button" class="leaveButton">Return</button>
-          <button type="submit">Save Note</button>
+          <button type="button" class="changeButton leaveButton defaultButton">
+            Return
+          </button>
+          <p class="hiddenElements">Please fill out the Title</p>
+          <button class="defaultButton" type="Button" id="textSubmitButton">
+            Save Note
+          </button>
         </div>
       </form>
     </div>

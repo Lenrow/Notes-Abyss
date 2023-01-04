@@ -14,4 +14,34 @@ function checkForNoteBooks() {
   }
 }
 
-const NoteBooks = JSON.stringify(params);
+for (const changeButtons of document.getElementsByClassName("changeButton")) {
+  changeButtons.addEventListener("click", function switchEditor() {
+    document.querySelector(".section").classList.toggle("active");
+    document.getElementById("textEditor").classList.toggle("active");
+  });
+}
+
+function addToJS() {
+  const tempNote = {
+    title: document.getElementById("newNoteTitle").value,
+    content: document.getElementById("noteText").value,
+  };
+  if (tempNote.title) {
+    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes = {
+      title: tempNote.title,
+      content: tempNote.content,
+    };
+    switchNotePage();
+  } else {
+    document.querySelector(".hiddenElements").classList.toggle("active");
+  }
+}
+
+document.getElementById("textSubmitButton").addEventListener("click", addToJS);
+
+function switchNotePage() {
+  const pages = document.getElementsByClassName("section");
+  for (const wrapper of pages) {
+    wrapper.classList.toggle("active");
+  }
+}
