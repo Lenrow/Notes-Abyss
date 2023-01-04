@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: #212f3c;
   margin: 0 0;
@@ -6,6 +10,11 @@ body {
   flex-direction: column;
   align-items: center;
   color: #eafaf1;
+  height: 100%;
+}
+
+.section {
+  height: 100%;
 }
 
 hr {
@@ -14,15 +23,15 @@ hr {
 }
 
 #mainBox {
-  height: 700px;
+  height: 70%;
   width: 70%;
   margin: 10% auto;
 }
 
 #textEditor {
-  height: 700px;
+  height: 80%;
   width: 70%;
-  margin: 10% auto;
+  margin: 5% 10%;
   background-color: #2e4053;
 }
 
@@ -34,26 +43,45 @@ hr {
 
 input.editorText {
   background-color: #5d6d7e;
+  height: 5%;
 }
 
 textarea {
-  min-height: 400px;
   background-color: #2e4053;
+  height: 65%;
 }
 
 #textEditor form {
   display: flex;
   flex-direction: column;
-  margin: 10% 10%;
-  height: auto;
+  justify-content: center;
+  height: 90%;
+  margin: 2% 10% 0 10%;
 }
 
 #textEditor div {
   display: flex;
   justify-content: space-between;
+  margin: 0 0 4% 0;
 }
 
 button {
+  padding: 0;
+}
+
+.notes.changeButton {
+  background-color: #5d6d7e;
+  border: 2px solid #117a65;
+  border-radius: 10px;
+  margin: 15px 15px;
+  flex: 25%;
+  padding-top: 0;
+  color: #eafaf1;
+  display: flex;
+  flex-direction: column;
+}
+
+.defaultButton {
   font-size: 25px;
   background-color: #0e6655;
   border: 0;
@@ -63,11 +91,11 @@ button {
   box-shadow: 2px 2px 2px rgb(55, 54, 54);
 }
 
-button:hover {
+.defaultButton:hover {
   background-color: #117a65;
 }
 
-button:active {
+.defaultButton:active {
   background-color: #0b5345;
 }
 
@@ -129,4 +157,25 @@ p.topP {
 
 .notePreview {
   padding: 3px 0;
+}
+
+.hiddenEditor {
+  display: none;
+}
+
+#textEditor.section.active {
+  display: block;
+}
+
+.section.active#mainNoteWrapper {
+  display: none;
+}
+.hiddenElements {
+  visibility: hidden;
+  font-size: 20px;
+  color: #abb2b9;
+}
+
+.hiddenElements.active {
+  visibility: visible;
 }
