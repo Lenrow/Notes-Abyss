@@ -51,4 +51,8 @@ function switchNotePage() {
 
 function saveNoteBooksToSession() {
   sessionStorage.setItem("NoteBooks", JSON.stringify(NoteBooks));
+  sessionStorage.setItem(
+    "Notes",
+    JSON.stringify(NoteBooks.notebook[currentNoteBook].notes)
+  );
 }
