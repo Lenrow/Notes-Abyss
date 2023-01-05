@@ -12,6 +12,7 @@ function checkForNoteBooks() {
     NoteBooks = params;
     NoteBooks.notebook = [{ nameNoteBook: params.notebook, notes: [] }];
   }
+  saveNoteBooksToSession();
 }
 
 for (const changeButtons of document.getElementsByClassName("changeButton")) {
@@ -33,6 +34,7 @@ function addToJS() {
     });
     console.log(NoteBooks.notebook.notes);
     switchNotePage();
+    saveNoteBooksToSession();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
@@ -45,4 +47,8 @@ function switchNotePage() {
   for (const wrapper of pages) {
     wrapper.classList.toggle("active");
   }
+}
+
+function saveNoteBooksToSession() {
+  sessionStorage.setItem("NoteBooks", JSON.stringify(NoteBooks));
 }
