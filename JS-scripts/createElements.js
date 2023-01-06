@@ -8,6 +8,13 @@ function readNotesFromStorage() {
   });
 }
 
+function saveNoteBooksToSession() {
+  sessionStorage.setItem("NoteBooks", JSON.stringify(NoteBooks));
+  sessionStorage.setItem(
+    "Notes",
+    JSON.stringify(NoteBooks.notebook[currentNoteBook].notes)
+  );
+}
 function createNote(note) {
   const shortenedTitle = note.content.substring(0, numberNotePreviewChars);
   sessionStorage.setItem(
