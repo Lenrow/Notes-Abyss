@@ -22,7 +22,7 @@ function createNote(note) {
     "numberExistingNotes",
     Number(sessionStorage.getItem("numberExistingNotes")) + 1
   );
-  const uniqueID = note.title + sessionStorage.getItem("numberExistingNotes");
+  const uniqueID = sessionStorage.getItem("numberExistingNotes");
   let button = document.createElement("button");
   button.classList.add("changeButton");
   button.classList.add("notes");
