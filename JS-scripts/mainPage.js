@@ -3,8 +3,12 @@ let currentNoteBook = 0;
 let numberExistingNotes;
 const allWrappers = document.getElementsByClassName("section");
 const mainNoteWrapper = document.getElementById("mainNoteWrapper");
+let isBeingEdited = false;
+const IDEditee = 0;
 
-document.getElementById("textSubmitButton").addEventListener("click", addToJS);
+document
+  .getElementById("textSubmitButton")
+  .addEventListener("click", checkIfEdit);
 
 window.onload = function () {
   checkForNoteBooks();
@@ -36,17 +40,44 @@ function switchAndEdit() {
   document.getElementById("noteText").value = this.children[1].textContent;
   mainNoteWrapper.classList.toggle("active");
   document.getElementById("textEditor").classList.toggle("active");
+  isBeingEdited = true;
 }
 
-function addToJS() {
-  const tempNote = {
+function checkIfEdit() {
+  if (isBeingEdited) {
+    editNote();
+  } else {
+    addToJS();
+  }
+}
+
+function editNote() {
+  const _tempNote = {
     title: document.getElementById("newNoteTitle").value,
     content: document.getElementById("noteText").value,
   };
-  if (tempNote.title) {
+  if (_tempNote.title) {
+    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes[IDEditee] = {
+      title: _tempNote.title,
+      content: _tempNote.content,
+    };
+    switchToNotePage();
+    saveNoteBooksToSession();
+    readNotesFromStorage();
+  } else {
+    document.querySelector(".hiddenElements").classList.toggle("active");
+  }
+}
+
+function addToJS() {
+  const _tempNote = {
+    title: document.getElementById("newNoteTitle").value,
+    content: document.getElementById("noteText").value,
+  };
+  if (_tempNote.title) {
     NoteBooks.notebook[NoteBooks.notebook.length - 1].notes.push({
-      title: tempNote.title,
-      content: tempNote.content,
+      title: _tempNote.title,
+      content: _tempNote.content,
     });
     switchToNotePage();
     saveNoteBooksToSession();
