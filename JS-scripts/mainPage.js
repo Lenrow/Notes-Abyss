@@ -1,4 +1,5 @@
 let NoteBooks;
+document.getElementById("textSubmitButton").addEventListener("click", addToJS);
 
 window.onload = function () {
   checkForNoteBooks();
@@ -32,19 +33,16 @@ function addToJS() {
       title: tempNote.title,
       content: tempNote.content,
     });
-    console.log(NoteBooks.notebook.notes);
-    switchNotePage();
+    switchToNotePage();
     saveNoteBooksToSession();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
 }
 
-document.getElementById("textSubmitButton").addEventListener("click", addToJS);
-
-function switchNotePage() {
-  const pages = document.getElementsByClassName("section");
-  for (const wrapper of pages) {
+function switchToNotePage() {
+  for (const wrapper of allWrappers) {
+    if (wrapper.classList.contains("active")) {
     wrapper.classList.toggle("active");
   }
 }
