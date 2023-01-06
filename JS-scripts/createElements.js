@@ -20,7 +20,7 @@ function createNote(note) {
   const shortenedTitle = note.content.substring(0, numberNotePreviewChars);
   sessionStorage.setItem(
     "numberExistingNotes",
-    sessionStorage.getItem("numberExistingNotes") + 1
+    Number(sessionStorage.getItem("numberExistingNotes")) + 1
   );
   const uniqueID = note.title + sessionStorage.getItem("numberExistingNotes");
   let button = document.createElement("button");
