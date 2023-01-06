@@ -24,6 +24,19 @@ button {
   box-shadow: 2px 2px 2px rgb(55, 54, 54);
 }
 
+.selectorButton {
+  background-color: #34495e;
+  color: #eafaf1;
+  margin: 0.3% 0;
+  border: 1px solid #212f3c;
+}
+.selectorButton:hover {
+  background-color: #5d6d7e;
+}
+.selectorButton:active {
+  background-color: #2e4053;
+}
+
 .defaultButton:hover {
   background-color: #117a65;
 }
