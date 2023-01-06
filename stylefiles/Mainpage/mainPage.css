@@ -17,6 +17,10 @@ body {
   height: 100%;
 }
 
+#mainNoteWrapper {
+  width: 100%;
+}
+
 hr {
   border: 1px solid #0e6655;
   margin: auto;
@@ -32,6 +36,8 @@ hr {
   height: 8%;
   background-color: #34495e;
   border-bottom: 2px solid #117a65;
+  display: flex;
+  justify-content: center;
 }
 
 .topBar {
