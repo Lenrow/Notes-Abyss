@@ -61,13 +61,12 @@ p.topP {
   text-align: center;
   flex-wrap: wrap;
   background-color: #2e4053;
+  flex: 25%;
 }
 
 .notes {
   border: 2px solid #117a65;
   border-radius: 10px;
-  margin: 15px 15px;
-  flex: 25%;
   background-color: #5d6d7e;
 }
 
