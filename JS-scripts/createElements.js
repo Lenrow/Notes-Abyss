@@ -1,5 +1,5 @@
 const noteBox = document.getElementById("notesBox");
-let numberNotePreviewChars = 150;
+let numberNotePreviewChars = 60;
 
 function refreshNotePage() {
   deleteElementsOnSite();
