@@ -4,7 +4,7 @@ let numberExistingNotes;
 const allWrappers = document.getElementsByClassName("section");
 const mainNoteWrapper = document.getElementById("mainNoteWrapper");
 let isBeingEdited = false;
-const IDEditee = 0;
+let IDEditee;
 
 document
   .getElementById("textSubmitButton")
@@ -25,7 +25,7 @@ function checkForNoteBooks() {
     NoteBooks.notebook = [{ nameNoteBook: params.notebook, notes: [] }];
   }
   saveNoteBooksToSession();
-  readNotesFromStorage();
+  refreshNotePage();
 }
 
 for (const changeButtons of document.getElementsByClassName("changeButton")) {
@@ -41,6 +41,7 @@ function switchAndEdit() {
   mainNoteWrapper.classList.toggle("active");
   document.getElementById("textEditor").classList.toggle("active");
   isBeingEdited = true;
+  IDEditee = Number(this.id);
 }
 
 function checkIfEdit() {
@@ -57,13 +58,13 @@ function editNote() {
     content: document.getElementById("noteText").value,
   };
   if (_tempNote.title) {
-    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes[IDEditee] = {
+    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes[IDEditee - 1] = {
       title: _tempNote.title,
       content: _tempNote.content,
     };
     switchToNotePage();
     saveNoteBooksToSession();
-    readNotesFromStorage();
+    refreshNotePage();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
@@ -81,7 +82,7 @@ function addToJS() {
     });
     switchToNotePage();
     saveNoteBooksToSession();
-    readNotesFromStorage();
+    refreshNotePage();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }

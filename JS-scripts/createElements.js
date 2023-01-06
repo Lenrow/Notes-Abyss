@@ -1,7 +1,8 @@
 const noteBox = document.getElementById("notesBox");
 let numberNotePreviewChars = 150;
 
-function readNotesFromStorage() {
+function refreshNotePage() {
+  deleteElementsOnSite();
   const NotesTemp = JSON.parse(sessionStorage.getItem("Notes"));
   NotesTemp.forEach((singleNote) => {
     createNote(singleNote);
@@ -34,4 +35,11 @@ function createNote(note) {
     `;
   button.insertAdjacentHTML("afterbegin", customNote);
   document.getElementById(uniqueID).addEventListener("click", switchAndEdit);
+}
+
+function deleteElementsOnSite() {
+  while (noteBox.lastChild) {
+    noteBox.removeChild(noteBox.lastChild);
+  }
+  sessionStorage.setItem("numberExistingNotes", 0);
 }
