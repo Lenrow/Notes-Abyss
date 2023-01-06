@@ -1,8 +1,15 @@
 let NoteBooks;
+let currentNoteBook = 0;
+let numberExistingNotes;
+const allWrappers = document.getElementsByClassName("section");
+const mainNoteWrapper = document.getElementById("mainNoteWrapper");
+
 document.getElementById("textSubmitButton").addEventListener("click", addToJS);
 
 window.onload = function () {
   checkForNoteBooks();
+  numberExistingNotes = JSON.parse(sessionStorage.getItem("Notes")).length;
+  sessionStorage.setItem("numberExistingNotes", numberExistingNotes);
 };
 
 function checkForNoteBooks() {
@@ -14,13 +21,21 @@ function checkForNoteBooks() {
     NoteBooks.notebook = [{ nameNoteBook: params.notebook, notes: [] }];
   }
   saveNoteBooksToSession();
+  readNotesFromStorage();
 }
 
 for (const changeButtons of document.getElementsByClassName("changeButton")) {
-  changeButtons.addEventListener("click", function switchEditor() {
+  changeButtons.addEventListener("click", function () {
     document.querySelector(".section").classList.toggle("active");
     document.getElementById("textEditor").classList.toggle("active");
   });
+}
+
+function switchAndEdit() {
+  document.getElementById("newNoteTitle").value = this.children[0].textContent;
+  document.getElementById("noteText").value = this.children[1].textContent;
+  mainNoteWrapper.classList.toggle("active");
+  document.getElementById("textEditor").classList.toggle("active");
 }
 
 function addToJS() {
@@ -35,6 +50,7 @@ function addToJS() {
     });
     switchToNotePage();
     saveNoteBooksToSession();
+    readNotesFromStorage();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
@@ -43,14 +59,7 @@ function addToJS() {
 function switchToNotePage() {
   for (const wrapper of allWrappers) {
     if (wrapper.classList.contains("active")) {
-    wrapper.classList.toggle("active");
+      wrapper.classList.toggle("active");
+    }
   }
-}
-
-function saveNoteBooksToSession() {
-  sessionStorage.setItem("NoteBooks", JSON.stringify(NoteBooks));
-  sessionStorage.setItem(
-    "Notes",
-    JSON.stringify(NoteBooks.notebook[currentNoteBook].notes)
-  );
 }
