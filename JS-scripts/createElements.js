@@ -43,3 +43,16 @@ function deleteElementsOnSite() {
   }
   sessionStorage.setItem("numberExistingNotes", 0);
 }
+
+function downloadNotes() {
+  const noteData = JSON.stringify(NoteBooks);
+  const downloadLink = document.createElement("a");
+  downloadLink.download = "Abyss-Notes-" + NoteBooks.name + ".json";
+  const noteFile = new Blob([noteData], { type: "json" });
+  downloadLink.href = window.URL.createObjectURL(noteFile);
+  downloadLink.click();
+}
+
+document
+  .getElementById("downloadButton")
+  .addEventListener("click", downloadNotes);
