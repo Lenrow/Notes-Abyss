@@ -1,29 +1,10 @@
 const noteBox = document.getElementById("notesBox");
 let numberNotePreviewChars = 60;
 
-function refreshNotePage() {
-  deleteElementsOnSite();
-  const NotesTemp = JSON.parse(sessionStorage.getItem("Notes"));
-  NotesTemp.forEach((singleNote) => {
-    createNote(singleNote);
-  });
-}
-
-function saveNoteBooksToSession() {
-  sessionStorage.setItem("NoteBooks", JSON.stringify(NoteBooks));
-  sessionStorage.setItem(
-    "Notes",
-    JSON.stringify(NoteBooks.notebook[currentNoteBook].notes)
-  );
-}
-
 function createNote(note) {
   const shortenedTitle = note.content.substring(0, numberNotePreviewChars);
-  sessionStorage.setItem(
-    "numberExistingNotes",
-    Number(sessionStorage.getItem("numberExistingNotes")) + 1
-  );
-  const uniqueID = sessionStorage.getItem("numberExistingNotes");
+  increaseOrResetNumberNotes(true);
+  const uniqueID = getNumberExistingNotes();
   let button = document.createElement("button");
   button.classList.add("changeButton");
   button.classList.add("notes");
@@ -41,7 +22,7 @@ function deleteElementsOnSite() {
   while (noteBox.lastChild) {
     noteBox.removeChild(noteBox.lastChild);
   }
-  sessionStorage.setItem("numberExistingNotes", 0);
+  increaseOrResetNumberNotes(false);
 }
 
 function downloadNotes() {

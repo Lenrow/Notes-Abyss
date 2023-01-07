@@ -1,20 +1,46 @@
 let NoteBooks;
+let Notes;
 let currentNoteBook = 0;
 let numberExistingNotes;
 const allWrappers = document.getElementsByClassName("section");
 const mainNoteWrapper = document.getElementById("mainNoteWrapper");
 let isBeingEdited = false;
 let IDEditee;
-
 document
   .getElementById("textSubmitButton")
   .addEventListener("click", checkIfEdit);
 
-window.onload = function () {
-  checkForNoteBooks();
-  numberExistingNotes = JSON.parse(sessionStorage.getItem("Notes")).length;
-  sessionStorage.setItem("numberExistingNotes", numberExistingNotes);
-};
+function getNoteBox() {
+  return NoteBooks;
+}
+
+function setNoteBooks(_tempNoteBooks) {
+  NoteBooks = _tempNoteBooks;
+}
+
+function refreshNotesVar() {
+  Notes = NoteBooks.notebooks[currentNoteBook].notes;
+}
+
+function refreshNotePage() {
+  deleteElementsOnSite();
+  refreshNotesVar();
+  Notes.forEach((singleNote) => {
+    createNote(singleNote);
+  });
+}
+
+function increaseOrResetNumberNotes(bool) {
+  if (bool) {
+    numberExistingNotes++;
+  } else {
+    numberExistingNotes = 0;
+  }
+}
+
+function getNumberExistingNotes() {
+  return numberExistingNotes;
+}
 
 function checkForNoteBooks() {
   if (NoteBooks === undefined) {
@@ -22,9 +48,9 @@ function checkForNoteBooks() {
       new URLSearchParams(window.location.search).entries()
     );
     NoteBooks = params;
-    NoteBooks.notebook = [{ nameNoteBook: params.notebook, notes: [] }];
+    NoteBooks.notebooks = [{ nameNoteBook: params.notebook, notes: [] }];
   }
-  saveNoteBooksToSession();
+  refreshNotesVar();
   refreshNotePage();
 }
 
@@ -58,12 +84,12 @@ function editNote() {
     content: document.getElementById("noteText").value,
   };
   if (_tempNote.title) {
-    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes[IDEditee - 1] = {
+    NoteBooks.notebooks[currentNoteBook].notes[IDEditee - 1] = {
       title: _tempNote.title,
       content: _tempNote.content,
     };
     switchToNotePage();
-    saveNoteBooksToSession();
+    refreshNotesVar();
     refreshNotePage();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
@@ -76,12 +102,12 @@ function addToJS() {
     content: document.getElementById("noteText").value,
   };
   if (_tempNote.title) {
-    NoteBooks.notebook[NoteBooks.notebook.length - 1].notes.push({
+    NoteBooks.notebooks[currentNoteBook].notes.push({
       title: _tempNote.title,
       content: _tempNote.content,
     });
     switchToNotePage();
-    saveNoteBooksToSession();
+    refreshNotesVar();
     refreshNotePage();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
