@@ -58,16 +58,22 @@ for (const changeButtons of document.getElementsByClassName("changeButton")) {
   changeButtons.addEventListener("click", function () {
     document.querySelector(".section").classList.toggle("active");
     document.getElementById("textEditor").classList.toggle("active");
+    resetEditStatus();
   });
 }
 
 function switchAndEdit() {
-  document.getElementById("newNoteTitle").value = this.children[0].textContent;
-  document.getElementById("noteText").value = this.children[1].textContent;
+  IDEditee = Number(this.id);
+  document.getElementById("newNoteTitle").value = Notes[IDEditee - 1].title;
+  document.getElementById("noteText").value = Notes[IDEditee - 1].content;
   mainNoteWrapper.classList.toggle("active");
   document.getElementById("textEditor").classList.toggle("active");
   isBeingEdited = true;
-  IDEditee = Number(this.id);
+}
+
+function resetEditStatus() {
+  isBeingEdited = false;
+  IDEditee = -1;
 }
 
 function checkIfEdit() {
@@ -91,6 +97,7 @@ function editNote() {
     switchToNotePage();
     refreshNotesVar();
     refreshNotePage();
+    resetEditStatus();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
