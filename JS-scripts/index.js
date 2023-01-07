@@ -7,13 +7,37 @@ for (const element of document.getElementsByClassName("switch-button")) {
   });
 }
 
+function toggleMainFile() {
+  for (const page of document.getElementsByClassName("HTMLPages")) {
+    page.classList.toggle("active");
+  }
+  refreshNotePage();
+}
+
 function submitJSONFile() {
   if (fileInput.files.length > 0) {
     fileInput.files[0].text().then(function (text) {
       const fileObj = JSON.parse(text);
-      sessionStorage.setItem("NoteBooks", JSON.stringify(fileObj));
+      setNoteBooks(fileObj);
+      toggleMainFile();
     });
   }
+}
+
+function createNewNoteBooksFile() {
+  const nameUser = document.getElementById("inputNewName").value;
+  const nameNewNoteBook = document.getElementById("inputNewNoteBookName").value;
+  let _tempNoteBooks = {
+    name: nameUser,
+    notebooks: [
+      {
+        nameNoteBook: nameNewNoteBook,
+        notes: [],
+      },
+    ],
+  };
+  setNoteBooks(_tempNoteBooks);
+  toggleMainFile();
 }
 
 fileInput.addEventListener("change", function () {
@@ -21,3 +45,6 @@ fileInput.addEventListener("change", function () {
 });
 
 hiddenKeyButton.addEventListener("click", submitJSONFile);
+document
+  .getElementById("sendAndJoinButton")
+  .addEventListener("click", createNewNoteBooksFile);
