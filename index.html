@@ -3,46 +3,56 @@
   <head>
     <title>Notes Abyss</title>
     <link rel="stylesheet" href="stylefiles\firstpage-style.css" />
+    <link rel="stylesheet" href="stylefiles/MainPage/mainPage.css" />
+    <link rel="stylesheet" href="stylefiles/MainPage/textEditor.css" />
+    <link rel="stylesheet" href="stylefiles/Mainpage/buttons.css" />
   </head>
 
   <body>
-    <div class="subtext">
-      <h1>Welcome to the Notes Abyss</h1>
-      <p>
-        This is my little Project <br />
-        to make taking and transfering Notes on different devices <br />
-        a lot easier
-      </p>
-    </div>
-
-    <div class="box container">
-      <!--The Welcome Page where Users can choose between starting anew or uploading their file-->
-      <div class="main" id="welcomePage">
+    <div class="HTMLPages" id="firstHTMLPage">
+      <div class="subtext">
+        <h1>Welcome to the Notes Abyss</h1>
         <p>
-          If you are a new User please proceed by clicking the Button below.
-        </p>
-        <button class="button switch-button" type="button" id="startButton">
-          Join the Abyss
-        </button>
-        <hr />
-        <p>
-          If you are already familiar with our services<br />
-          then please hand us your key...
-        </p>
-        <input type="file" accept=".json" id="acceptKey" />
-        <br />
-        <button class="button" type="button" id="hiddenButton">Proceed</button>
-        <hr />
-        <p class="pmarg">
-          If there is nothing for you to inquire <br />
-          I must ask you to turn back <br />
-          and leave this site <br />
-          Farewell!
+          This is my little Project <br />
+          to make taking and transfering Notes on different devices <br />
+          a lot easier
         </p>
       </div>
 
-      <div class="main start-div">
-        <form method="GET" action="zahtmlfiles/mainPage.html" id="startForm">
+      <div class="box container">
+        <!--The Welcome Page where Users can choose between starting anew or
+        uploading their file-->
+        <div class="main" id="welcomePage">
+          <p>
+            If you are a new User please proceed by clicking the Button below.
+          </p>
+          <button class="button switch-button" type="button" id="startButton">
+            Join the Abyss
+          </button>
+          <hr />
+          <p>
+            If you are already familiar with our services<br />
+            then please hand us your key...
+          </p>
+          <input type="file" accept=".json" id="acceptKey" />
+          <br />
+          <button
+            class="button joinAbyssButton"
+            type="button"
+            id="hiddenButton"
+          >
+            Proceed
+          </button>
+          <hr />
+          <p class="pmarg">
+            If there is nothing for you to inquire <br />
+            I must ask you to turn back <br />
+            and leave this site <br />
+            Farewell!
+          </p>
+        </div>
+
+        <div class="main start-div">
           <h3 style="margin-bottom: 10px">Welcome to the Abyss!</h3>
           <p class="smalltext">
             The Notes Abyss is a website designated to making it easier to
@@ -65,6 +75,7 @@
             type="text"
             placeholder="Name"
             name="name"
+            id="inputNewName"
             required
           />
           <input
@@ -72,6 +83,7 @@
             class="inputs"
             placeholder="Notebook Name"
             name="notebook"
+            id="inputNewNoteBookName"
             required
           />
           <p class="smalltext">(All Names can be changed on the Website)</p>
@@ -81,7 +93,11 @@
             I hope the Website helps you <br />
             and thank you for Joining the Abyss!
           </p>
-          <button class="button" type="submit" id="sendAndJoinButton">
+          <button
+            class="button joinAbyssButton"
+            type="button"
+            id="sendAndJoinButton"
+          >
             Send Information and join the Abyss
           </button>
           <br />
@@ -89,10 +105,71 @@
           <button class="button switch-button" type="button" id="returnButton">
             Return
           </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="HTMLPages" id="mainHTMLPage">
+      <div class="section" id="mainNoteWrapper">
+        <div class="topBar">
+          <p class="topP">Notes Abyss</p>
+          <p class="topP">Settings</p>
+        </div>
+
+        <div id="mainBox">
+          <div id="selector">
+            <button
+              type="button"
+              class="selectorButton changeButton"
+              id="createNoteButton"
+            >
+              + create New Note
+            </button>
+            <button class="selectorButton" type="button" id="downloadButton">
+              Download your Notes
+            </button>
+          </div>
+
+          <div id="notesBox"></div>
+        </div>
+
+        <div></div>
+
+        <div class="pageEnd"></div>
+      </div>
+
+      <div id="textEditor" class="section hiddenEditor">
+        <form>
+          <input
+            class="editorText"
+            type="text"
+            placeholder="Title"
+            name="title"
+            required
+            id="newNoteTitle"
+          />
+          <textarea class="editorText" name="note" id="noteText"></textarea>
+          <div>
+            <button
+              type="button"
+              class="changeButton leaveButton defaultButton"
+            >
+              Return
+            </button>
+            <p class="hiddenElements">Please fill out the Title</p>
+            <button class="defaultButton" type="Button" id="textSubmitButton">
+              Save Note
+            </button>
+          </div>
         </form>
       </div>
     </div>
 
     <script type="application/javascript" src="JS-scripts/index.js"></script>
+    <script type="application/javascript" src="JS-scripts/mainPage.js"></script>
+    <script
+      type="application/javascript"
+      src="JS-scripts/createElements.js"
+    ></script>
   </body>
 </html>
