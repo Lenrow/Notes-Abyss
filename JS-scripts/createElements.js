@@ -37,6 +37,18 @@ function downloadNotes() {
   downloadLink.click();
 }
 
+/* function that toggles visibility of the delete Button */
+function addRemoveDeleteButton(bool) {
+  const _tempButton = document.getElementById("deleteButton");
+  if (bool) {
+    _tempButton.classList.add("active");
+  } else {
+    _tempButton.classList.remove("active");
+  }
+}
+
 document
   .getElementById("downloadButton")
   .addEventListener("click", downloadNotes);
+
+document.getElementById("deleteButton").addEventListener("click", deleteNote);

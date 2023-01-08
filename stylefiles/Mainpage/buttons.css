@@ -31,6 +31,14 @@ button {
   padding: 0 1%;
   border: 1px solid #212f3c;
 }
+
+.deleteButton {
+  width: 20%;
+  border-radius: 0;
+  background-color: #1c2833;
+  visibility: hidden;
+}
+
 .selectorButton:hover {
   background-color: #5d6d7e;
 }
@@ -56,4 +64,12 @@ button {
 
 .leaveButton:active {
   background-color: #943126;
+}
+
+.deleteButton:hover {
+  background-color: #212f3d;
+}
+
+.deleteButton:active {
+  background-color: #17202a;
 }

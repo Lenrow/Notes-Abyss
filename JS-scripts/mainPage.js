@@ -52,6 +52,7 @@ for (const changeButtons of document.getElementsByClassName("changeButton")) {
     document.querySelector(".section").classList.toggle("active");
     document.getElementById("textEditor").classList.toggle("active");
     resetEditStatus();
+    addRemoveDeleteButton(false);
   });
 }
 
@@ -63,6 +64,7 @@ function switchAndEdit() {
   mainNoteWrapper.classList.toggle("active");
   document.getElementById("textEditor").classList.toggle("active");
   isBeingEdited = true;
+  addRemoveDeleteButton(true);
 }
 
 function resetEditStatus() {
@@ -90,10 +92,7 @@ function editNote() {
       title: _tempNote.title,
       content: _tempNote.content,
     };
-    switchToNotePage();
-    refreshNotesVar();
-    refreshNotePage();
-    resetEditStatus();
+    updateNotePageAndVars();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
@@ -110,12 +109,16 @@ function addToJS() {
       title: _tempNote.title,
       content: _tempNote.content,
     });
-    switchToNotePage();
-    refreshNotesVar();
-    refreshNotePage();
+    updateNotePageAndVars();
   } else {
     document.querySelector(".hiddenElements").classList.toggle("active");
   }
+}
+
+/* function that deletes the Note that is edited right now */
+function deleteNote() {
+  NoteBooks.notebooks[currentNoteBook].notes.splice(IDEditee - 1, 1);
+  updateNotePageAndVars();
 }
 
 /* function that switches back to the Note wrapper */
@@ -125,4 +128,12 @@ function switchToNotePage() {
       wrapper.classList.toggle("active");
     }
   }
+}
+
+function updateNotePageAndVars() {
+  refreshNotesVar();
+  refreshNotePage();
+  switchToNotePage();
+  resetEditStatus();
+  addRemoveDeleteButton(false);
 }

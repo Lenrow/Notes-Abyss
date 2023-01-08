@@ -42,3 +42,7 @@ textarea {
 #textEditor.section.active {
   display: block;
 }
+
+#deleteButton.active {
+  visibility: visible;
+}
