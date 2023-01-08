@@ -6,6 +6,7 @@ const allWrappers = document.getElementsByClassName("section");
 const mainNoteWrapper = document.getElementById("mainNoteWrapper");
 let isBeingEdited = false;
 let IDEditee;
+
 document
   .getElementById("textSubmitButton")
   .addEventListener("click", checkIfEdit);
@@ -14,14 +15,20 @@ function getNoteBox() {
   return NoteBooks;
 }
 
+function getNumberExistingNotes() {
+  return numberExistingNotes;
+}
+
 function setNoteBooks(_tempNoteBooks) {
   NoteBooks = _tempNoteBooks;
 }
 
+/* Refresh Notes Variable */
 function refreshNotesVar() {
   Notes = NoteBooks.notebooks[currentNoteBook].notes;
 }
 
+/* delete all Note HTML Elements and create all existing News new */
 function refreshNotePage() {
   deleteElementsOnSite();
   refreshNotesVar();
@@ -30,6 +37,7 @@ function refreshNotePage() {
   });
 }
 
+/* increase by one or reset numberExistingNotes variable */
 function increaseOrResetNumberNotes(bool) {
   if (bool) {
     numberExistingNotes++;
@@ -38,22 +46,7 @@ function increaseOrResetNumberNotes(bool) {
   }
 }
 
-function getNumberExistingNotes() {
-  return numberExistingNotes;
-}
-
-function checkForNoteBooks() {
-  if (NoteBooks === undefined) {
-    const params = Object.fromEntries(
-      new URLSearchParams(window.location.search).entries()
-    );
-    NoteBooks = params;
-    NoteBooks.notebooks = [{ nameNoteBook: params.notebook, notes: [] }];
-  }
-  refreshNotesVar();
-  refreshNotePage();
-}
-
+/* Add function to switch to or away from the Editor */
 for (const changeButtons of document.getElementsByClassName("changeButton")) {
   changeButtons.addEventListener("click", function () {
     document.querySelector(".section").classList.toggle("active");
@@ -62,6 +55,7 @@ for (const changeButtons of document.getElementsByClassName("changeButton")) {
   });
 }
 
+/* function that is added onto buttons */
 function switchAndEdit() {
   IDEditee = Number(this.id);
   document.getElementById("newNoteTitle").value = Notes[IDEditee - 1].title;
@@ -76,6 +70,7 @@ function resetEditStatus() {
   IDEditee = -1;
 }
 
+/* function for the save note button to check whether it is a new Note or an edit */
 function checkIfEdit() {
   if (isBeingEdited) {
     editNote();
@@ -84,6 +79,7 @@ function checkIfEdit() {
   }
 }
 
+/* function that overrides existing Note and refreshes afterwards */
 function editNote() {
   const _tempNote = {
     title: document.getElementById("newNoteTitle").value,
@@ -103,6 +99,7 @@ function editNote() {
   }
 }
 
+/* function that adds new Note to the NoteBooks variable and refreshes afterwards */
 function addToJS() {
   const _tempNote = {
     title: document.getElementById("newNoteTitle").value,
@@ -121,6 +118,7 @@ function addToJS() {
   }
 }
 
+/* function that switches back to the Note wrapper */
 function switchToNotePage() {
   for (const wrapper of allWrappers) {
     if (wrapper.classList.contains("active")) {

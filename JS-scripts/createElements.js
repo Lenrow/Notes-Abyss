@@ -1,6 +1,7 @@
 const noteBox = document.getElementById("notesBox");
 let numberNotePreviewChars = 60;
 
+/* creates a single Note HTML Element and adds an Event */
 function createNote(note) {
   const shortenedTitle = note.content.substring(0, numberNotePreviewChars);
   increaseOrResetNumberNotes(true);
@@ -18,6 +19,7 @@ function createNote(note) {
   document.getElementById(uniqueID).addEventListener("click", switchAndEdit);
 }
 
+/* deletes all active Notes Elements */
 function deleteElementsOnSite() {
   while (noteBox.lastChild) {
     noteBox.removeChild(noteBox.lastChild);
@@ -25,6 +27,7 @@ function deleteElementsOnSite() {
   increaseOrResetNumberNotes(false);
 }
 
+/* function that is added to the Download Button that makes it possible to download a JSON NoteBooks File */
 function downloadNotes() {
   const noteData = JSON.stringify(NoteBooks);
   const downloadLink = document.createElement("a");
