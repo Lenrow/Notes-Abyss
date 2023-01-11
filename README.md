@@ -1,6 +1,6 @@
 # Notes-Abyss
 
-A beginner Web-development Project, designated towards making taking and sharing notes between devices easier.
+A Web-development Project, designated towards making taking and sharing notes between devices easier.
 First Prototype is now done.
 Notes can now be taken, edited and downloaded via a JSON file.
 That file can also be uploaded to continue where you left off.
